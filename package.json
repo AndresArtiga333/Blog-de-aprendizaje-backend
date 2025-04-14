@@ -1,0 +1,33 @@
+{
+  "name": "blog-de-aprendizaje-backend",
+  "version": "1.0.0",
+  "description": "Blog de aprendizaje backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndresArtiga333/Blog-de-aprendizaje-backend.git"
+  },
+  "author": "Andres Artiga",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AndresArtiga333/Blog-de-aprendizaje-backend/issues"
+  },
+  "homepage": "https://github.com/AndresArtiga333/Blog-de-aprendizaje-backend#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "helmet": "^8.1.0",
+    "mongoose": "^8.13.2",
+    "morgan": "^1.10.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
