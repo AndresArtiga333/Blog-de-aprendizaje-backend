@@ -21,7 +21,15 @@ const publicacionesSchema = new Schema({
         type: String,
         required: [true, 'El curso es requerido'],
         enum: ['TALLER', 'TECNOLOGIA', 'PRACTICA SUPERVISADA']
-    }
+    },
+    pdfPath: {
+        type: String,
+        default: null
+      },
+      zipPath: {
+        type: String,
+        default: null
+      }
     },
     {
         versionKey: false, 
