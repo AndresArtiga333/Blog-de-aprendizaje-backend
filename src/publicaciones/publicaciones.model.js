@@ -1,6 +1,7 @@
 import {Schema, model} from 'mongoose';
+import '../comentarios/comentarios.model.js'
 
-const publicacionesSchema = new Schema({
+const publicacionesSchema = Schema({
     titulo:{
         type: String,
         required: [true, 'El titulo es requerido'],
@@ -29,7 +30,11 @@ const publicacionesSchema = new Schema({
       zipPath: {
         type: String,
         default: null
-      }
+      },comentarios: [{  
+        type: Schema.ObjectId,
+        ref: "Comentarios",
+        default: []  
+      }]
     },
     {
         versionKey: false, 

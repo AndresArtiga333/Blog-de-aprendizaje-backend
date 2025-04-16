@@ -2,22 +2,37 @@ import Publicaciones from './publicaciones.model.js';
 import {format} from 'date-fns';
 
 export const listarPublicaciones = async (req, res) => {
-    try{
+    try {
         const {curso} = req.query;
-        let filtro = {}
+        let filtro = {};
+        
         if(curso !== undefined){
-            filtro.curso = {curso} 
+            filtro.curso = curso; 
         }
-        const sort = {fecha: -1}
-        const publicaciones = await Publicaciones.find(filtro).select('-_id -__v ').sort(sort)
+        
+        const sort = {fecha: -1};
+        const publicaciones = await Publicaciones.find(filtro)
+            .select('-_id -__v')
+            .populate({
+                path: 'comentarios',
+                select: 'autor contenido fecha -_id',
+                options: { sort: { fecha: -1 } }
+            })
+            .sort(sort);
 
-        const publicacionesF = publicaciones.map(publi => ({...publi.toObject(), 
-            fecha: format(new Date(publi.fecha), 'yyyy-MM-dd HH:mm'),
-          }))
+        const publicacionesF = publicaciones.map(publicacion => ({
+            ...publicacion.toObject(),
+            fecha: format(new Date(publicacion.fecha), 'yyyy-MM-dd HH:mm'), 
+            comentarios: publicacion.comentarios.map(comentario => ({
+                ...comentario.toObject(),
+                fecha: format(new Date(comentario.fecha), 'yyyy-MM-dd HH:mm') 
+            }))
+        }));
+        
         res.status(200).json({
             message: "Publicaciones encontradas",
-            publicacionesF
-        })
+            publicaciones: publicacionesF
+        });
     }catch(err){
         res.status(500).json({
             error: "Error al listar las publicaciones",
