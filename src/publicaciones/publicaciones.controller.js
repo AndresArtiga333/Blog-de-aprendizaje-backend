@@ -1,5 +1,14 @@
 import Publicaciones from './publicaciones.model.js';
-import {format} from 'date-fns';
+import Comentarios from '../comentarios/comentarios.model.js';
+import { format } from 'date-fns';
+import fs from 'fs/promises';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const pdfDir = path.join(__dirname, '../../public/pdfs');
+const zipDir = path.join(__dirname, '../../public/zips');
 
 export const listarPublicaciones = async (req, res) => {
     try {
@@ -84,3 +93,65 @@ export const descargarArchivo = async (req, res) => {
       }
     });
   };
+
+  export const eliminarPublicacion = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const publicacion = await Publicaciones.findById(id);
+        
+        if (!publicacion) {
+            return res.status(404).json({
+                error: "Publicación no encontrada"
+            });
+        }
+
+        await Comentarios.deleteMany({ _id: { $in: publicacion.comentarios } });
+
+        const eliminarArchivo = async (filePath, tipo) => {
+            if (!filePath) return;
+            
+            try {
+                let fullPath;
+                if (tipo === 'pdf') {
+                    fullPath = path.join(pdfDir, path.basename(filePath));
+                } else if (tipo === 'zip') {
+                    fullPath = path.join(zipDir, path.basename(filePath));
+                } else {
+                    return;
+                }
+
+                await fs.unlink(fullPath);
+                console.log(`Archivo ${tipo} eliminado: ${fullPath}`);
+            } catch (err) {
+                console.error(`Error al eliminar archivo ${tipo}:`, err.message);
+            }
+        };
+
+        await Promise.all([
+            eliminarArchivo(publicacion.pdfPath, 'pdf'),
+            eliminarArchivo(publicacion.zipPath, 'zip')
+        ]);
+        
+        await Publicaciones.findByIdAndDelete(id);
+
+        res.status(200).json({
+            message: "Publicación eliminada completamente",
+            detalles: {
+                titulo: publicacion.titulo,
+                id: publicacion._id,
+                archivosEliminados: {
+                    pdf: !!publicacion.pdfPath,
+                    zip: !!publicacion.zipPath
+                }
+            }
+        });
+
+    } catch(err) {
+        console.error("Error en eliminarPublicacion:", err);
+        res.status(500).json({
+            error: "Error al eliminar la publicación",
+            message: err.message
+        });
+    }
+};

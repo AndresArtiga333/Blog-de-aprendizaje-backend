@@ -1,6 +1,6 @@
 import {Router} from 'express';
 import { agregarPublicacionValidator } from '../middlewares/publicaciones-validator.js';
-import { crearPublicacion, listarPublicaciones, descargarArchivo } from './publicaciones.controller.js';
+import { crearPublicacion, listarPublicaciones, descargarArchivo, eliminarPublicacion } from './publicaciones.controller.js';
 import { upload } from '../middlewares/multer-uploads.js';
 
 const router = Router()
@@ -13,3 +13,5 @@ router.get("/", listarPublicaciones)
 
 router.get('/descargar/:tipo/:nombreArchivo', descargarArchivo);
 export default router
+
+router.delete("/eliminarPublicacion/:id", eliminarPublicacion)
