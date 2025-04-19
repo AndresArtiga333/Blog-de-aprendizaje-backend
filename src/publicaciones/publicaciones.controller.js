@@ -62,7 +62,6 @@ export const crearPublicacion = async (req, res) => {
             pdfPath: pdfFile?.filename, 
             zipPath: zipFile?.filename
         })
-        console.log(nuevaPublicacion)
         res.status(201).json({
             message: "Publicacion creada",
             publicacion: nuevaPublicacion
