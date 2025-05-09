@@ -6,7 +6,7 @@ const publicacionesSchema = Schema({
         type: String,
         required: [true, 'El titulo es requerido'],
         trim: true,
-        maxLength: [30, 'El titulo no puede ser mayor a 30 caracteres']
+        maxLength: [50, 'El titulo no puede ser mayor a 30 caracteres']
     },
     contenido:{
         type: String,
@@ -22,6 +22,11 @@ const publicacionesSchema = Schema({
         type: String,
         required: [true, 'El curso es requerido'],
         enum: ['TALLER', 'TECNOLOGIA', 'PRACTICA SUPERVISADA']
+    },
+    categoria:{
+        type: String,
+        required: [true, 'La categoria es requerida'],
+        enum: ['CODIGO', 'INVESTIGACION', 'INFOGRAFIA', 'MAPA CONCEPTUAL', 'MAPA MENTAL']
     },
       comentarios: [{  
         type: Schema.ObjectId,
