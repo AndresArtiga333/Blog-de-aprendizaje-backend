@@ -1,0 +1,243 @@
+{
+	"info": {
+		"_postman_id": "671b2fbf-32ee-40ca-a216-b25017b9d1de",
+		"name": "Blog de aprendizaje",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37641954"
+	},
+	"item": [
+		{
+			"name": "Publicaciones",
+			"item": [
+				{
+					"name": "Crear publicacion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Blog de aprendizaje\",\r\n    \"contenido\": \"Es un blog donde yo he posteo cada uno de las actidiades que he hecho en el año\",\r\n    \"curso\": \"TALLER\",\r\n    \"categoria\": \"CODIGO\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/blog/v1/publicaciones/crearPublicacion",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"blog",
+								"v1",
+								"publicaciones",
+								"crearPublicacion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar publicaciones",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"curso\": \"TECNOLOGIA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/blog/v1/publicaciones/listar",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"blog",
+								"v1",
+								"publicaciones",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar publicacion",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/blog/v1/publicaciones/eliminarPublicacion/67fffba8485ce56f2daf92b0",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"blog",
+								"v1",
+								"publicaciones",
+								"eliminarPublicacion",
+								"67fffba8485ce56f2daf92b0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar publicacion",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/blog/v1/publicaciones/buscarPublicacionPorId/681aac8021fc467f880f9ee6",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"blog",
+								"v1",
+								"publicaciones",
+								"buscarPublicacionPorId",
+								"681aac8021fc467f880f9ee6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comentarios",
+			"item": [
+				{
+					"name": "Agregar comentario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"autor\": \"hola123\",\r\n    \"contenido\": \"mejora la estructura\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/blog/v1/comentarios/agregarComentarios/681aac8021fc467f880f9ee6",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"blog",
+								"v1",
+								"comentarios",
+								"agregarComentarios",
+								"681aac8021fc467f880f9ee6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar comentario",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/blog/v1/comentarios/eliminarComentario/6802b998682fd0a55fae255f",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"blog",
+								"v1",
+								"comentarios",
+								"eliminarComentario",
+								"6802b998682fd0a55fae255f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar comentario",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"contenido\": \"dale a like si te gusto\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/blog/v1/comentarios/editarComentario/6802b95e3386914acdbfdf72",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"blog",
+								"v1",
+								"comentarios",
+								"editarComentario",
+								"6802b95e3386914acdbfdf72"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

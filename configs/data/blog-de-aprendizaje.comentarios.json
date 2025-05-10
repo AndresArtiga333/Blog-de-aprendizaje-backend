@@ -1,0 +1,33 @@
+[{
+  "_id": {
+    "$oid": "681fc6cae1b566a272e5271b"
+  },
+  "autor": "Figueroa123",
+  "contenido": "Bien ahi",
+  "fecha": {
+    "$date": "2025-05-10T21:36:10.758Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681fc6eae1b566a272e52725"
+  },
+  "autor": "HOLA1234",
+  "contenido": "Buena idea",
+  "fecha": {
+    "$date": "2025-05-10T21:36:42.736Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681fc7a8e1b566a272e5272f"
+  },
+  "autor": "ADIOS321",
+  "contenido": "Buena agenda",
+  "fecha": {
+    "$date": "2025-05-10T21:39:52.256Z"
+  },
+  "__v": 0
+}]

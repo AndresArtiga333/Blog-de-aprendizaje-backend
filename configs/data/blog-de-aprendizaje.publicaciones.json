@@ -1,0 +1,90 @@
+[{
+  "_id": {
+    "$oid": "681aabca05577e8e498ceb83"
+  },
+  "titulo": "LAB1 Agenda web",
+  "contenido": "API para la agenda de contactos de un usuario",
+  "curso": "PRACTICA SUPERVISADA",
+  "categoria": "CODIGO",
+  "comentarios": [
+    {
+      "$oid": "681d39fd75514c7cd97f919a"
+    },
+    {
+      "$oid": "681fc7a8e1b566a272e5272f"
+    }
+  ],
+  "fecha": {
+    "$date": "2025-05-07T00:39:38.139Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "681aac8021fc467f880f9ee6"
+  },
+  "titulo": "Actividad 1: Infografia HTML, CSS, PreProcesadores",
+  "contenido": "API para la agenda de contactos de un usuario",
+  "curso": "TECNOLOGIA",
+  "categoria": "INFOGRAFIA",
+  "comentarios": [
+    {
+      "$oid": "681d775b75514c7cd97f9319"
+    },
+    {
+      "$oid": "681d83b675514c7cd97f9361"
+    },
+    {
+      "$oid": "681d93c71eeb48c9a967ec07"
+    },
+    {
+      "$oid": "681d945f1eeb48c9a967ec11"
+    },
+    {
+      "$oid": "681e76f51eeb48c9a967ec23"
+    },
+    {
+      "$oid": "681e79051eeb48c9a967ec33"
+    },
+    {
+      "$oid": "681e8df11eeb48c9a967ec6f"
+    },
+    {
+      "$oid": "681e8e011eeb48c9a967ec75"
+    },
+    {
+      "$oid": "681e91a01eeb48c9a967ec85"
+    },
+    {
+      "$oid": "681e92d71eeb48c9a967ec91"
+    },
+    {
+      "$oid": "681ecf701eeb48c9a967ed73"
+    },
+    {
+      "$oid": "681fa4621eeb48c9a967edcb"
+    },
+    {
+      "$oid": "681fc6eae1b566a272e52725"
+    }
+  ],
+  "fecha": {
+    "$date": "2025-05-07T00:42:40.634Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "681fc00ffb829be6ba556cf3"
+  },
+  "titulo": "Blog de aprendizaje",
+  "contenido": "Es un blog donde yo he posteo cada uno de las actidiades que he hecho en el año",
+  "curso": "TALLER",
+  "categoria": "CODIGO",
+  "comentarios": [
+    {
+      "$oid": "681fc6cae1b566a272e5271b"
+    }
+  ],
+  "fecha": {
+    "$date": "2025-05-10T21:07:27.939Z"
+  }
+}]
